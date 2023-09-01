@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title></title>
+        <style>
+            body {
+             background-image: url("/view_background.jpg");
+             background-repeat: no-repeat;
+             background-size: cover;     
+             }
+             nav a.btn {
+                 color: whitesmoke;
+             }
+             nav {
+                 background-color: #000000;
+                 padding: 10px;
+             }
+             nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+             }
+             .card{
+                background-color: #0006;
+                color: whitesmoke;
+            }
+            
+            .table>:not(caption)>*>* {
+            color: whitesmoke !important;
+            }
+         </style>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <a href="http://localhost:3000/team" class="btn">Team</a>
+                <a href="http://localhost:3000/all_rounder" class="btn">All Rounder</a>
+                <a href="http://localhost:3000/bat" class="btn">Bat</a>
+                <a href="http://localhost:3000/pak_player" class="btn">Pak Player</a>
+                <a href="http://localhost:3000/pak_player_stats" class="btn">Pak Player Stats</a>
+                <a href="http://localhost:3000/type" class="btn">Type</a>
+                <a href="http://localhost:3000/formats" class="btn">Formats</a>
+                <a href="http://localhost:3000/team_pak_player" class="btn">Team Pak Player</a>
+                <a href="http://localhost:3000/state" class="btn">State</a>
+                <a href="/logout" class="btn float-end">Logout</a>
+            </nav>
+            <h1 style="color: whitesmoke;" class="text-center mt-3 mb-3">Player Statistics</h1>
+            
+            <% if(action == 'add') { %>
+                <div class="card">
+                    <div class="card-header">Ball Form</div>
+                    <div class="card-body">
+                        <form method="POST" action="/ball/add_ball">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Ball id</label>
+                                        <input type="text" name="Ball_id" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Baller</label>
+                                        <input type="text" name="Baller" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Best Bowling Figures</label>
+                                        <input type="text" name="Best_Bowling_Figures" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Wickets</label>
+                                        <input type="number" name="Wickets" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Fid</label>
+                                        <input type="text" name="Fid" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="submit_button" class="btn btn-primary" value="Add" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <% } else if(action == 'edit') { %>
+                <div class="card">
+                    <div class="card-header">Ball Form</div>
+                    <div class="card-body">
+                        <form method="POST" action="/ball/edit/<%= ballData.Ball_id %>">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Baller</label>
+                                        <input type="text" name="Baller"  class="form-control" value="<%= ballData.Baller %>" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Best Bowling Figures</label>
+                                        <input type="text" name="Best_Bowling_Figures"  class="form-control" value="<%= ballData.Best_Bowling_Figures %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Wickets</label>
+                                        <input type="number" name="Wickets"  class="form-control" value="<%= ballData.Wickets %>" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Fid</label>
+                                        <input type="text" name="Fid"  class="form-control" value="<%= ballData.Fid %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="submit_button" class="btn btn-primary" value="Edit" />
+                            </div>
+                        </form>
+                    </div>
+                </div>   
+
+            <% } else { %>
+                
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">Ball Data</div>
+                        <div class="col">
+                            <a href="/ball/add" class="btn btn-success btn-sm float-end">Add</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Ball id</th>
+                                <th>Baller</th>
+                                <th>Best Bowling Figures</th>
+                                <th>Wickets</th>
+                                <th>Fid</th>
+                            </tr>
+                            <%
+                            if(ballData.length > 0)
+                            {
+                                ballData.forEach(function(data){
+                            %>
+                            <tr>
+                                <td><%= data.Ball_id %></td>
+                                <td><%= data.Baller %></td>
+                                <td><%= data.Best_Bowling_Figures %></td>
+                                <td><%= data.Wickets %></td>
+                                <td><%= data.Fid %></td>
+                                <td>
+                                    <a href="/ball/edit/<%= data.Ball_id %>" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="/ball/delete/<%= data.Ball_id %>" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td colspan="5">No Data Found</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+        </div> 
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

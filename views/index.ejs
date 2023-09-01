@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Login System </title>
+        <style>
+            body {
+             background-image: url("/view_background.jpg");
+             background-repeat: no-repeat;
+             background-size: cover;   
+            }
+            .card{
+                padding: 15px;
+            }
+
+            .card{
+                background-color: #0006;
+                color: whitesmoke;
+            }
+            
+            .table>:not(caption)>*>* {
+            color: whitesmoke !important;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <h1 class="mt-5 mb-5 text-center text-primary" ><b style="color: whitesmoke;">Welcome To The Stats Academy</b></h1>
+            <div class="overlay"></div>
+            <div class="row mt-5">
+
+                <div class="col-md-3">&nbsp;</div>
+                <div class="col-md-6">
+                <% if(session.user_id) { %>
+
+                    <h1>Hi User, Welcome</h1>
+
+                    <a href="/logout" class="btn btn-primary">Logout</a>
+
+                <% } else { %>
+
+                    <div class="card">
+                      <div class="col">
+                        <a href="http://localhost:3000/view" class="btn btn-success btn-sm float-end"> User View</a>
+                      </div>
+                        <div class="card-body">
+                            <form method="post" action="/login">
+                                <div class="mb-3">
+                                    <label>User Name</label>
+                                    <input type="text" name="user_name" class="form-control" />
+                                </div>
+                                <div class="mb-3">
+                                    <label>User Password</label>
+                                    <input type="password" name="user_password" class="form-control" />
+                                </div>
+                                <div class="mb-3">
+                                    <input type="submit" class="btn btn-primary" value="Login" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                <% } %>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title></title>
+        <style>
+            body {
+             background-image: url("/view_background.jpg");
+             background-repeat: no-repeat;
+             background-size: cover;     
+             }
+            .card{
+                background-color: #0006;
+                color: whitesmoke;
+            }
+            
+            .table>:not(caption)>*>* {
+            color: whitesmoke !important;
+            }
+            .btn-primary {
+             color: #000;
+             background-color: #ffffff;
+            }
+
+            .btn-primary:hover {
+             color: white;
+             background-color: black;
+            }
+
+
+
+         </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1 style="color: whitesmoke;" class="text-center mt-3 mb-3">PAKISTAN PLAYER STATISTICS</h1>
+            <form  method="POST" action="/view/add_view">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <input type="text" name="search" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" name="submit_button" class="btn btn-primary" value="Search" />
+                </div>
+            </form>
+            <% if(action == 'add') { %>
+
+            <% } else { %>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class=" h1 text-center">View Data</div>
+                        <div class="col">
+                            <a href="http://localhost:3000/" class="btn btn-success btn-sm float-end">Log In</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Palyer Name</th>
+                                <th>Last Name</th>
+                                <th>Team id</th>
+                                <th>Address</th>
+                                <th>State Name</th>
+                                <th>Type Name</th>
+                                <th>Age</th>
+                                <th>Date Of Birth</th>
+                                <th>Baller</th>
+                                <th>Best Bowling Figure</th>
+                                <th>Wickets</th>
+                                <th>Fid</th>
+                                <th>Batsman</th>
+                                <th>Best Runs</th>
+                            </tr>
+                            <%
+                            if(viewData.length > 0)
+                            {
+                                viewData.forEach(function(data){
+                            %>
+                            <tr>
+                                <td><%= data.First_Name %></td>
+                                <td><%= data.Player_Name %></td>
+                                <td><%= data.Last_Name %></td>
+                                <td><%= data.Tid %></td>
+                                <td><%= data.Address %></td>
+                                <td><%= data.State_Name %></td>
+                                <td><%= data.Type_Name %></td>
+                                <td><%= data.Age %></td>
+                                <td><%= data.Date_Of_Birth %></td>
+                                <td><%= data.baller %></td>
+                                <td><%= data.Best_Bowling_Figures %></td>
+                                <td><%= data.Wickets %></td>
+                                <td><%= data.Fid %></td>
+                                <td><%= data.Batsman %></td>
+                                <td><%= data.Best_Runs %></td>
+                                <td></td>
+                            </tr>
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td colspan="5">No Data Found</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+        </div> 
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
