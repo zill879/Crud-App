@@ -1,30 +1,19 @@
 <h1 align="center">
-  <a href="https://safdarjamal.github.io/crud-app/">
+  <a href="https://github.com/zill879/Crud-App">
     CRUD App
   </a>
 </h1>
 
 <p align="center">
-  <a href="https://github.com/SafdarJamal/crud-app/actions?query=workflow%3A%22Node.js+CI%22">
-    <img src="https://github.com/SafdarJamal/crud-app/workflows/Node.js%20CI/badge.svg" alt="Node.js CI" />
-  </a>
-  <a href="https://github.com/SafdarJamal/crud-app/releases">
-    <img src="https://img.shields.io/github/v/release/SafdarJamal/crud-app" alt="GitHub Release (latest by date)" />
-  </a>
-  <a href="https://github.com/SafdarJamal/crud-app/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/SafdarJamal/crud-app" alt="License" />
-  </a>
+  A simple and beautiful <a href="https://www.codecademy.com/articles/what-is-crud">CRUD</a> application built with <a href="https://nodejs.org/en/about">NodeJs</a>.
 </p>
 
-<p align="center">
-  A simple and beautiful <a href="https://www.codecademy.com/articles/what-is-crud">CRUD</a> application built with <a href="https://reactjs.org">React</a>.
-</p>
+![CRUD FRONT](https://github.com/zill879/Crud-App/assets/99209236/97827807-5c75-46bb-a9ae-e7aa339b18b0)
 
-![crud-app](https://user-images.githubusercontent.com/48409548/94567114-8aa5ea80-0284-11eb-99f6-87401b099848.png)
 
 ## Technologies Used
 
-- [React](http://reactjs.org)
+- [NodeJs](https://nodejs.org/en/about)
 - [Primitive UI](https://taniarascia.github.io/primitive)
 - [SweetAlert2](https://sweetalert2.github.io)
 
@@ -33,8 +22,8 @@
 To get a local copy of the code, clone it using git:
 
 ```
-git clone https://github.com/SafdarJamal/crud-app.git
-cd crud-app
+git clone https://github.com/zill879/Crud-Appp.git
+cd Crud-App
 ```
 
 Install dependencies:
